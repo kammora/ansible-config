@@ -1,0 +1,33 @@
+---
+
+- name: Install utility tools
+  hosts: vms
+  tasks:
+    - name: Install using package manager
+      become: yes
+      package:
+        name:
+        - htop
+        - vim
+        - tree
+        - net-tools
+        - git
+        state: latest
+
+    - name: Update git config
+      shell: |
+        cat <<EOF > ~/.gitconfig
+        [user]
+                name = kammora
+                email = kammora@a.a
+        EOF
+
+    - name: Verify gitconfig
+      shell: >
+        cat ~/.gitconfig
+      register: gitconfig
+
+    - name: Print gitconfig
+      debug:
+        msg: 'Gitconfig value: {{ gitconfig.stdout_lines  }}'
+

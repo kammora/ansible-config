@@ -1,0 +1,8 @@
+# https://docs.ansible.com/ansible/latest/network/getting_started/first_inventory.html#variable-syntax
+ansible-inventory -i ./inventory.yml --list
+
+# https://github.com/georchestra/ansible/issues/55
+# run playbook and ask for become(sudo) password
+ansible-playbook ./configure_zsh.yml -K
+
+
