@@ -21,6 +21,14 @@
                 name = kammora
                 email = kammora@a.a
         EOF
+    - name: Add github host to ssh config
+      shell: |
+        cat<<EOF >> ~/.ssh/config
+        
+        Host github.com
+          HostName github.com
+          IdentityFile ~/.ssh/github
+        EOF
 
     - name: Verify gitconfig
       shell: >
