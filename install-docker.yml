@@ -1,7 +1,8 @@
 ---
 
 - name: Install and configure docker
-  hosts: vms
+  hosts: localhost
+  become: yes
   tasks:
     - name: Remove old packages
       package:
@@ -24,7 +25,8 @@
     
     - name: Set up docker repo
       shell: >
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+        cat /etc/apt/sources.list.d/docker.list ||
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | echo "y" > sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
         && echo
         "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu 
         $(lsb_release -cs)" stable | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -36,5 +38,17 @@
           - docker-ce-cli
           - containerd.io
         state: latest
+    
+    - name: Register current user username
+      become: no
+      shell: >
+        whoami
+      register: username
+
+    - name: Add user to docker group
+      user:
+        name: "{{ username.stdout }}"
+        append: yes
+        groups: docker
 
 
