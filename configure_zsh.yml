@@ -1,7 +1,7 @@
 ---
 
 - name: Configure zsh with oh-my-zsh theme
-  hosts: vms
+  hosts: localhost
   tasks:
     - name: Install prerequiresites
       package:

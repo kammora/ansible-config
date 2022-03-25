@@ -1,7 +1,7 @@
 ---
 
 - name: Install utility tools
-  hosts: vms
+  hosts: localhost
   tasks:
     - name: Install using package manager
       become: yes
@@ -38,4 +38,3 @@
     - name: Print gitconfig
       debug:
         msg: 'Gitconfig value: {{ gitconfig.stdout_lines  }}'
-

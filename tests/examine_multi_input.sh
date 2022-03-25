@@ -1,5 +1,5 @@
 sudo chmod +x ./multi-input-program.sh
 cat <<EOF | ./multi-input-program.sh
-haha
+$(echo haha)
 hehe
 EOF

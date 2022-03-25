@@ -23,21 +23,20 @@
           - lsb-release
         state: latest
     
-    - name: Set up docker repo
-      shell: >
-        cat /etc/apt/sources.list.d/docker.list ||
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | echo "y" > sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-        && echo
-        "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu 
-        $(lsb_release -cs)" stable | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    - name: Install docker using convenience script
+      shell: | 
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        DRY_RUN=1
+        sudo sh ./get-docker.sh
+        rm ./get-docker.sh
 
-    - name: Install docker 
-      package:
-        name:
-          - docker-ce 
-          - docker-ce-cli
-          - containerd.io
-        state: latest
+    #- name: Install docker 
+    #  package:
+    #    name:
+    #      - docker-ce 
+    #      - docker-ce-cli
+    #      - containerd.io
+    #    state: latest
     
     - name: Register current user username
       become: no
