@@ -23,6 +23,7 @@
         EOF
     - name: Add github host to ssh config
       shell: |
+        mkdir -p ~/.ssh
         cat<<EOF >> ~/.ssh/config
         
         Host github.com
@@ -38,3 +39,11 @@
     - name: Print gitconfig
       debug:
         msg: 'Gitconfig value: {{ gitconfig.stdout_lines  }}'
+
+    - name: Docker on zsh start and cd into ~
+      shell: |
+        cat<<EOF >> ~/.zshrc
+        sudo service docker status >> /dev/null || sudo service docker start
+        cd ~
+        echo "[cd -] to back to the previous directory"
+        EOF
