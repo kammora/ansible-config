@@ -8,11 +8,10 @@ sudo apt install ansible -y
 ansible-playbook ../zsh_install.yml
 ansible-playbook ../docker_install.yml
 ansible-playbook ../utils_install.yml
-zsh
 
-sudo bash ./kubeadm
+sudo bash ./containerd.sh
 
-sudo systemctl containerd restart
+sudo bash ./kubeadm.sh
 
 # --service-cidr string     Default: "10.96.0.0/12"
 kubeadm init
