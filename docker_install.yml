@@ -50,4 +50,17 @@
         append: yes
         groups: docker
 
+    - name: Re-read groups
+      become: yes
+      shell: >
+        exec sudo su -l $USER
 
+    - name: List current groups
+      become: yes
+      shell: >
+        id
+      register: gps
+
+    - name: print groups of current user
+      debug: 
+        msg: Groups of current user: [{{ gps }}]
