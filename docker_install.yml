@@ -62,5 +62,5 @@
       register: gps
 
     - name: print groups of current user
-      debug: 
-        msg: Groups of current user: [{{ gps }}]
+      debug:
+        msg: Groups of current user: ["{{ gps }}"]

@@ -14,4 +14,5 @@ sudo bash ./containerd.sh
 sudo bash ./kubeadm.sh
 
 # --service-cidr string     Default: "10.96.0.0/12"
-kubeadm init
+kubeadm init \
+--apiserver-bind-port 8080 #--apiserver-advertise-address 192.168.0.137
