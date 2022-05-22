@@ -63,4 +63,4 @@
 
     - name: print groups of current user
       debug:
-        msg: Groups of current user: ["{{ gps }}"]
+        msg: Groups of current user "{{ gps }}"
