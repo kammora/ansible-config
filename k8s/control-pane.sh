@@ -34,3 +34,7 @@ kubectl apply -f ./kube-flannel.yaml
 # allow scheduling pods on control pane (single node cluster)
 #  disabling control pane isolation
 kubectl taint nodes --all node-role.kubernetes.io/control-plane- node-role.kubernetes.io/master-
+
+# verify installation
+kubectl get pods --all-namespaces
+echo "If installation is completed successfully all pods are READY 1/1 Running"
