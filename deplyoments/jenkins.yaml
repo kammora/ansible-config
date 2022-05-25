@@ -35,7 +35,7 @@ spec:
   selector:
     app: jenkins
   ports:
-    - name: jenkins-http-port-exposed
+    - name: jenkins-exposed
       protocol: TCP
       port: 8080
       targetPort: jenkins-http-port
