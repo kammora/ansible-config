@@ -10,6 +10,6 @@ ansible-playbook ../docker_install.yml
 ansible-playbook ../utils_install.yml
 
 sudo bash ./containerd.sh
-sudo bash ./kubeadm.sh
+sudo bash ./kubetools.sh
 
 echo "kubeadm is ready to join cluster"
