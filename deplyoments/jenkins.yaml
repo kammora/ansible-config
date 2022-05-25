@@ -18,9 +18,9 @@ spec:
       - name: jenkins
         image: jenkins/jenkins:2.349-jdk11
         ports:
-        - containerPort: 50000
-        - containerPort: 8080
-        - mountPath: /var/jenkins_home
-          name: test-volume
+          - containerPort: 50000
+          - containerPort: 8080
+          - mountPath: /var/jenkins_home
+            name: test-volume
       volumes:
-      - name: jenkins-vol
+        - name: jenkins-vol

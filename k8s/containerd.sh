@@ -37,4 +37,4 @@ sudo sed -i 's/^disabled_plugins.*cri.*/#disabled_plugins = ["cri"]/' /etc/conta
 sudo systemctl restart containerd
 
 swapoff -a
-sed -i '' 's/^\([^#]\)/#\1/g' ~/.ssh/config
+#sed -i '' 's/^\([^#]\)/#\1/g' ~/.ssh/config
