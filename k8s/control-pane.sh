@@ -17,7 +17,7 @@ sudo bash ./kubetools.sh
 
 # --service-cidr string     Default: "10.96.0.0/12"
 sudo kubeadm init \
---pod-network-cid 10.244.0.0/16 # required for flannel (even with default value)
+--pod-network-cidr 10.244.0.0/16 # required for flannel (even with default value)
 # --apiserver-bind-port 8080 --apiserver-advertise-address 0.0.0.0
 
 mkdir -p $HOME/.kube
