@@ -18,10 +18,24 @@ spec:
       - name: jenkins
         image: jenkins/jenkins:2.349-jdk11
         ports:
-        - name:  http-port
+        - name: jenkins-http-port
           containerPort: 8080
           protocol: TCP
         - name: jnlp-port
           containerPort: 50000
       volumes:
         - name: jenkins-vol
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-service
+spec:
+  selector:
+    app: jenkins
+  ports:
+    - name: jenkins-http-port-exposed
+      protocol: TCP
+      port: 8080
+      targetPort: jenkins-http-port
