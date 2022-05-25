@@ -18,7 +18,7 @@ spec:
       - name: jenkins
         image: jenkins/jenkins:2.349-jdk11
         ports:
-        - name: jenkins-http-port
+        - name: jenkins-web
           containerPort: 8080
           protocol: TCP
         - name: jnlp-port
@@ -38,4 +38,4 @@ spec:
     - name: jenkins-exposed
       protocol: TCP
       port: 8080
-      targetPort: jenkins-http-port
+      targetPort: jenkins-web
