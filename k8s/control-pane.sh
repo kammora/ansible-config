@@ -38,3 +38,5 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane- node-role.kuber
 # verify installation
 kubectl get pods --all-namespaces
 echo "If installation is completed successfully all pods are READY 1/1 Running"
+echo "Run command below to get fresh join command"
+echo "kubeadm token create --print-join-command"

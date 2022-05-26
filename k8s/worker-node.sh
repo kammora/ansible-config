@@ -13,3 +13,5 @@ sudo bash ./containerd.sh
 sudo bash ./kubetools.sh
 
 echo "kubeadm is ready to join cluster"
+echo "Run command below on control-pane node to generate join command"
+echo "kubeadm token create --print-join-command"
