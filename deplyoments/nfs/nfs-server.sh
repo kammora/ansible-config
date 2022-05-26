@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-ubuntu-20-04
-
+# https://imperioweb.net/en/share-files-nfs-ubuntu-server-windows-10-client
 
 shareFolderPath="/share"
 
