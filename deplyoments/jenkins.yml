@@ -11,7 +11,7 @@ spec:
     matchLabels:
       app: jenkins
   template:
-    metadata:
+    metadata: # same as kind pod
       labels:
         app: jenkins
     spec:
@@ -24,8 +24,17 @@ spec:
               protocol: TCP
             - name: jnlp-port
               containerPort: 50000
+          volumeMounts:
+            - mountPath: /var/jenkins_home
+              name: jenkins-vol
+          resources: {}
       volumes:
         - name: jenkins-vol
+          hostPath:
+            # directory location on host
+            path: /var/jenkins_home
+            # this field is optional
+            type: Directory
 
 ---
 apiVersion: v1
