@@ -1,0 +1,19 @@
+---
+
+control-pane: 
+  hosts:
+    control-pane-1:
+      ansible_host: 192.168.0.101
+      ansible_user: server
+      ansible_ssh_pass: kaka
+
+workers:
+  hosts:
+    worker-1:
+      ansible_host: 192.168.0.101
+      ansible_user: server
+      ansible_ssh_pass: kaka
+    worker-2:
+      ansible_host: 192.168.0.101
+      ansible_user: server
+      ansible_ssh_pass: kaka

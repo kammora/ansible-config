@@ -1,1 +1,0 @@
-y gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
